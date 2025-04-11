@@ -1,7 +1,7 @@
 [submodule "inet"]
 	path = inet
 	url = git@github.com:inet-framework/inet.git
-	branch = v4.5.4
+	branch = v4.5.0
 [submodule "veins"]
 	path = veins
 	url = git@github.com:sommer/veins.git
