@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/simulacoes_trabalho_de_conclusao_de_curso -n .:../src $*
+# for shared lib, use: opp_run -l ../src/simulacoes_trabalho_de_conclusao_de_curso -n .:../src $*
