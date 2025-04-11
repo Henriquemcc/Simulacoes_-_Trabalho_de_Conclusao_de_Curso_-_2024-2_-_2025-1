@@ -5,4 +5,4 @@
 [submodule "veins"]
 	path = veins
 	url = git@github.com:sommer/veins.git
-	branch = veins-5.3.1
+	branch = veins-5.2
