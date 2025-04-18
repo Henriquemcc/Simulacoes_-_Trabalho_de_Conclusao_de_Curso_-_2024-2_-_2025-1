@@ -22,10 +22,10 @@
 
 #pragma once
 
-#include "veins_inet/veins_inet.h"
+#include "ToyExample/veins_inet.h"
 
 #include "veins/modules/mobility/traci/TraCIScenarioManagerLaunchd.h"
-#include "veins_inet/VeinsInetManagerBase.h"
+#include "ToyExample/VeinsInetManagerBase.h"
 
 namespace veins {
 

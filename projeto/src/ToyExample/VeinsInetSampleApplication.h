@@ -22,9 +22,9 @@
 
 #pragma once
 
-#include "veins_inet/veins_inet.h"
+#include "ToyExample/veins_inet.h"
 
-#include "veins_inet/VeinsInetApplicationBase.h"
+#include "ToyExample/VeinsInetApplicationBase.h"
 
 class VEINS_INET_API VeinsInetSampleApplication : public veins::VeinsInetApplicationBase {
 protected:

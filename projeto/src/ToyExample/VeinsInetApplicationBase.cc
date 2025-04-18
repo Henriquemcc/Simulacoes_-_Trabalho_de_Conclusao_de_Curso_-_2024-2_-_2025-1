@@ -25,7 +25,7 @@
 // Based on inet::UdpBasicApp of INET Framework v4.0.0
 //
 
-#include "veins_inet/VeinsInetApplicationBase.h"
+#include "ToyExample/VeinsInetApplicationBase.h"
 
 #include "inet/common/lifecycle/ModuleOperations.h"
 #include "inet/common/ModuleAccess.h"

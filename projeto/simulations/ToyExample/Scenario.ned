@@ -20,15 +20,15 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-package org.car2x.veins.subprojects.veins_inet.examples.veins_inet;
+package io.github.henriquemcc.simulacoes_trabalho_de_conclusao_de_curso.simulations.ToyExample;
 
 //#if INET_VERSION < 0x0403
 import inet.physicallayer*.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium;
 //#else
 import inet.physicallayer*.wireless.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium;
 //#endif
-import org.car2x.veins.subprojects.veins_inet.VeinsInetCar;
-import org.car2x.veins.subprojects.veins_inet.VeinsInetManager;
+import io.github.henriquemcc.simulacoes_trabalho_de_conclusao_de_curso.src.ToyExample.VeinsInetCar;
+import io.github.henriquemcc.simulacoes_trabalho_de_conclusao_de_curso.src.ToyExample.VeinsInetManager;
 //#if INET_VERSION < 0x0403
 import inet.visualizer*.integrated.IntegratedVisualizer;
 //#else

@@ -33,7 +33,7 @@ using namespace omnetpp;
 
 #include "inet/mobility/base/MobilityBase.h"
 
-#include "veins_inet/veins_inet.h"
+#include "ToyExample/veins_inet.h"
 
 #include "veins/modules/mobility/traci/TraCIScenarioManager.h"
 #include "veins/modules/mobility/traci/TraCICommandInterface.h"

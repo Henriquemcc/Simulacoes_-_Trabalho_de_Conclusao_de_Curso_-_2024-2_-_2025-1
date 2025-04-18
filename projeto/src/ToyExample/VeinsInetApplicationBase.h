@@ -24,13 +24,13 @@
 
 #include <vector>
 
-#include "veins_inet/veins_inet.h"
+#include "ToyExample/veins_inet.h"
 
 #include "inet/common/INETDefs.h"
 
 #include "inet/applications/base/ApplicationBase.h"
 #include "inet/transportlayer/contract/udp/UdpSocket.h"
-#include "veins_inet/VeinsInetMobility.h"
+#include "ToyExample/VeinsInetMobility.h"
 #include "veins/modules/utility/TimerManager.h"
 
 namespace veins {

@@ -22,7 +22,7 @@
 
 #pragma once
 
-#include "veins_inet/veins_inet.h"
+#include "ToyExample/veins_inet.h"
 
 #include "veins/modules/mobility/traci/TraCIScenarioManager.h"
 #include "veins/modules/utility/SignalManager.h"

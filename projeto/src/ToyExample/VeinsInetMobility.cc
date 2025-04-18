@@ -25,7 +25,7 @@
 // Based on inet::MovingMobilityBase of INET Framework v4.0.0
 //
 
-#include "veins_inet/VeinsInetMobility.h"
+#include "ToyExample/VeinsInetMobility.h"
 
 #include "inet/common/INETMath.h"
 #include "inet/common/Units.h"
