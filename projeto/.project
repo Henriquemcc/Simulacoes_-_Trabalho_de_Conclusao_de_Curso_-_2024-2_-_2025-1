@@ -3,6 +3,8 @@
 	<name>Simulacoes_-_Trabalho_de_Conclusao_de_Curso</name>
 	<comment></comment>
 	<projects>
+		<project>inet</project>
+		<project>veins</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
