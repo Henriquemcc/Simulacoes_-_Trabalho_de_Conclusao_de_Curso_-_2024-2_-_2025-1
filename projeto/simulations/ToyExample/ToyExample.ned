@@ -13,7 +13,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package simulacoes_trabalho_de_conclusao_de_curso.simulations.ToyExample;
+package io.github.henriquemcc.simulacoes_trabalho_de_conclusao_de_curso.simulations.ToyExample;
 
 //
 // TODO Auto-generated network

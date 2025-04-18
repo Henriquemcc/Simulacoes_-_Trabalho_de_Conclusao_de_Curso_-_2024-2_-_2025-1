@@ -1,3 +1,3 @@
-package simulacoes_trabalho_de_conclusao_de_curso.simulations;
+package io.github.henriquemcc.simulacoes_trabalho_de_conclusao_de_curso.simulations;
 
 @license(LGPL);
