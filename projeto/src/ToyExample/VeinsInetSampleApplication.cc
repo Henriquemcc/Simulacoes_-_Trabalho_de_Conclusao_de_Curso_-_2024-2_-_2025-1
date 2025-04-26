@@ -42,6 +42,7 @@ VeinsInetSampleApplication::VeinsInetSampleApplication()
 
 bool VeinsInetSampleApplication::startApplication()
 {
+    // Faz o veículo de índice 0 parar e emitir uma mensagem de acidente
     // host[0] should stop at t=20s
     if (getParentModule()->getIndex() == 0) {
         auto callback = [this]() {
@@ -91,6 +92,7 @@ void VeinsInetSampleApplication::processPacket(std::shared_ptr<inet::Packet> pk)
 
     if (haveForwarded) return;
 
+    // Encaminha a mensagem recebida aos demais veículos uma única vez
     auto packet = createPacket("relay");
     packet->insertAtBack(payload);
     sendPacket(std::move(packet));
