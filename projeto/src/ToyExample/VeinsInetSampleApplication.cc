@@ -36,16 +36,57 @@ using namespace inet;
 
 Define_Module(VeinsInetSampleApplication);
 
-VeinsInetSampleApplication::VeinsInetSampleApplication()
+void VeinsInetSampleApplication::processPacket(std::shared_ptr<inet::Packet> pk)
 {
+    auto payload = pk->peekAtFront<VeinsInetSampleMessage>();
+
+    EV_INFO << "Received packet: " << payload << endl;
+
+    getParentModule()->getDisplayString().setTagArg("i", 1, "green");
+
+    traciVehicle->changeRoute(payload->getRoadId(), 999.9);
+}
+
+/**
+ * Verifice se o vetor de sharedPointers contem um elemento.
+ * @param vector Vetor de sharedPointers.
+ * @param element Elemento procurado.
+ */
+template <typename T>
+bool VeinsInetSampleApplication::sharedPointerVectorContainsElement(const std::vector<std::shared_ptr<T>> vector, T* element)
+{
+    return std::any_of(vector.begin(), vector.end(), [element](const std::shared_ptr<T>& ptr) {
+        return ptr.get() == element;
+    });
+}
+
+void VeinsInetSampleApplication::socketDataArrived(inet::UdpSocket *socket, inet::Packet *packet)
+{
+    // Adicionando pacote a lista de pacotes recebidos
+    if (!VeinsInetSampleApplication::sharedPointerVectorContainsElement(VeinsInetSampleApplication::receivedMessages, packet))
+    {
+        VeinsInetSampleApplication::receivedMessages.push_back(std::make_shared<inet::Packet>(*packet));
+    }
+}
+
+/**
+ * Envia todas as mensagens recebidas.
+ */
+void VeinsInetSampleApplication::sendReceivedMessages()
+{
+    for (const auto& message : VeinsInetSampleApplication::receivedMessages)
+    {
+        sendPacket(std::make_unique<inet::Packet>(*message));
+    }
 }
 
 bool VeinsInetSampleApplication::startApplication()
 {
-    // Faz o veículo de índice 0 parar e emitir uma mensagem de acidente
-    // host[0] should stop at t=20s
-    if (getParentModule()->getIndex() == 0) {
-        auto callback = [this]() {
+    // Enviando a primeira mensagem, por meio de uma simulacao de um acidente
+    if (getParentModule()->getIndex() == 0)
+    {
+        auto callback = [this]()
+        {
             getParentModule()->getDisplayString().setTagArg("i", 1, "red");
 
             traciVehicle->setSpeed(0);
@@ -60,42 +101,16 @@ bool VeinsInetSampleApplication::startApplication()
             sendPacket(std::move(packet));
 
             // host should continue after 30s
-            auto callback = [this]() {
+            auto callback = [this]()
+            {
                 traciVehicle->setSpeed(-1);
             };
             timerManager.create(veins::TimerSpecification(callback).oneshotIn(SimTime(30, SIMTIME_S)));
         };
         timerManager.create(veins::TimerSpecification(callback).oneshotAt(SimTime(20, SIMTIME_S)));
+
+        // Enviando todas as mensagens recebidas
+        timerManager.create(veins::TimerSpecification([this](){sendReceivedMessages();}).oneshotAt(SimTime(20, SIMTIME_S)));
     }
-
     return true;
-}
-
-bool VeinsInetSampleApplication::stopApplication()
-{
-    return true;
-}
-
-VeinsInetSampleApplication::~VeinsInetSampleApplication()
-{
-}
-
-void VeinsInetSampleApplication::processPacket(std::shared_ptr<inet::Packet> pk)
-{
-    auto payload = pk->peekAtFront<VeinsInetSampleMessage>();
-
-    EV_INFO << "Received packet: " << payload << endl;
-
-    getParentModule()->getDisplayString().setTagArg("i", 1, "green");
-
-    traciVehicle->changeRoute(payload->getRoadId(), 999.9);
-
-    if (haveForwarded) return;
-
-    // Encaminha a mensagem recebida aos demais veículos uma única vez
-    auto packet = createPacket("relay");
-    packet->insertAtBack(payload);
-    sendPacket(std::move(packet));
-
-    haveForwarded = true;
 }

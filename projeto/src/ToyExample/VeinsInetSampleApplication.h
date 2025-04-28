@@ -28,12 +28,19 @@
 
 class VEINS_INET_API VeinsInetSampleApplication : public veins::VeinsInetApplicationBase {
 protected:
-    bool haveForwarded = false;
+//    bool haveForwarded = false;
+    std::vector<std::shared_ptr<inet::Packet>> receivedMessages;
 
 protected:
     virtual bool startApplication() override;
-    virtual bool stopApplication() override;
+    // virtual bool stopApplication() override;
     virtual void processPacket(std::shared_ptr<inet::Packet> pk) override;
+    virtual void socketDataArrived(inet::UdpSocket* socket, inet::Packet* packet) override;
+
+    template <typename T>
+    bool sharedPointerVectorContainsElement(const std::vector<std::shared_ptr<T>> vector, T* element);
+    void sendReceivedMessages();
+
 
 public:
     VeinsInetSampleApplication();
