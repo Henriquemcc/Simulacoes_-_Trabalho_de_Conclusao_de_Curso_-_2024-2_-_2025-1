@@ -81,6 +81,19 @@ void VeinsInetSampleApplication::sendReceivedMessages()
     }
 }
 
+void VeinsInetSampleApplication::scheduleSendReceivedMessages()
+{
+    auto sendCallback = [this]()
+    {
+        sendReceivedMessages();
+
+        // schedule the next send in 5 seconds
+        scheduleSendReceivedMessages();
+    };
+
+    timerManager.create(veins::TimerSpecification(sendCallback).oneshotIn(SimTime(5, SIMTIME_S)));
+}
+
 bool VeinsInetSampleApplication::startApplication()
 {
     // Enviando a primeira mensagem, por meio de uma simulacao de um acidente
@@ -111,7 +124,8 @@ bool VeinsInetSampleApplication::startApplication()
         timerManager.create(veins::TimerSpecification(callback).oneshotAt(SimTime(20, SIMTIME_S)));
 
         // Enviando todas as mensagens recebidas
-        timerManager.create(veins::TimerSpecification([this](){sendReceivedMessages();}).oneshotAt(SimTime(10, SIMTIME_S)));
+        // Schedule first sendReceivedMessages call
+        scheduleSendReceivedMessages();
     }
     return true;
 }

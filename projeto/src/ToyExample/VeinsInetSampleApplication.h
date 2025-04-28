@@ -40,6 +40,7 @@ protected:
     template <typename T>
     bool sharedPointerVectorContainsElement(const std::vector<std::shared_ptr<T>> vector, T* element);
     void sendReceivedMessages();
+    void scheduleSendReceivedMessages();
 
 
 public:
