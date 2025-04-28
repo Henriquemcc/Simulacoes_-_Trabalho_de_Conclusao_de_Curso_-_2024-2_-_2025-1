@@ -115,3 +115,18 @@ bool VeinsInetSampleApplication::startApplication()
     }
     return true;
 }
+
+bool VeinsInetSampleApplication::stopApplication()
+{
+
+}
+
+VeinsInetSampleApplication::VeinsInetSampleApplication()
+{
+
+}
+
+VeinsInetSampleApplication::~VeinsInetSampleApplication()
+{
+
+}

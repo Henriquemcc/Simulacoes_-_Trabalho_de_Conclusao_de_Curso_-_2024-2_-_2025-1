@@ -33,7 +33,7 @@ protected:
 
 protected:
     virtual bool startApplication() override;
-    // virtual bool stopApplication() override;
+    virtual bool stopApplication() override;
     virtual void processPacket(std::shared_ptr<inet::Packet> pk) override;
     virtual void socketDataArrived(inet::UdpSocket* socket, inet::Packet* packet) override;
 
