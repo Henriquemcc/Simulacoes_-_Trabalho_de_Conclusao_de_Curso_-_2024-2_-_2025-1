@@ -74,7 +74,7 @@ void VeinsInetSampleApplication::socketDataArrived(inet::UdpSocket *socket, inet
  */
 void VeinsInetSampleApplication::sendReceivedMessages()
 {
-    EV_INFO << "Enviando todos as mensagens recebidas" << endl;
+    EV << "Enviando todas as mensagens recebidas" << endl;
     for (const auto& message : VeinsInetSampleApplication::receivedMessages)
     {
         sendPacket(std::make_unique<inet::Packet>(*message));
