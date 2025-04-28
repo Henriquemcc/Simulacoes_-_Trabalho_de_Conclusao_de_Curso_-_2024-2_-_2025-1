@@ -111,7 +111,7 @@ bool VeinsInetSampleApplication::startApplication()
         timerManager.create(veins::TimerSpecification(callback).oneshotAt(SimTime(20, SIMTIME_S)));
 
         // Enviando todas as mensagens recebidas
-        timerManager.create(veins::TimerSpecification([this](){sendReceivedMessages();}).oneshotAt(SimTime(20, SIMTIME_S)));
+        timerManager.create(veins::TimerSpecification([this](){sendReceivedMessages();}).oneshotAt(SimTime(10, SIMTIME_S)));
     }
     return true;
 }
