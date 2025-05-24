@@ -1,0 +1,3 @@
+package simulacoes;
+
+@license(LGPL);
