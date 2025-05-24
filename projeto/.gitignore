@@ -1,0 +1,57 @@
+# OMNeT++ build artifacts
+/out
+/results
+/*.o
+/*.obj
+/*.lo
+/*.la
+/*.a
+/*.lib
+/*.so
+/*.dll
+/*.dylib
+/*.exe
+/*.app
+/*.cooked
+/*.bak
+/*.log
+/*.vlog
+/*.raw
+/*.ned.c
+/*.msg.cc
+/*.msg.h
+/*.sdf
+/*~
+*.swp
+
+# IDE specific (e.g., Eclipse/CDT)
+.cproject
+.project
+.settings/
+
+# OMNeT++ generated makefiles
+Makefile
+Makefile.inc
+Makefile.files
+Makefile.user
+Makefrag
+opp_makemake
+
+# OMNeT++ IDE (OMNeT++ 6.x uses the omnetppide workspace)
+.omnetppbuild
+.omnetppworkspace
+.omnetpplaunch
+
+# Mac OS X
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Backup files
+*~
+
+# Python cache if using scripts
+__pycache__/
+*.pyc
