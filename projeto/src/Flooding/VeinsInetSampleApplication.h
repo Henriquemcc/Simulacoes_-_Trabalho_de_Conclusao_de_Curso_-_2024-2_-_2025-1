@@ -20,13 +20,21 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-package org.car2x.veins.subprojects.veins_inet;
+#pragma once
 
-import org.car2x.veins.subprojects.veins_inet.VeinsInetApplicationBase;
+#include "../Flooding/veins_inet.h"
+#include "../Flooding/VeinsInetApplicationBase.h"
 
-simple VeinsInetSampleApplication extends VeinsInetApplicationBase
-{
-    parameters:
-        @class(VeinsInetSampleApplication);
-    gates:
-}
+class VEINS_INET_API VeinsInetSampleApplication : public veins::VeinsInetApplicationBase {
+protected:
+    bool haveForwarded = false;
+
+protected:
+    virtual bool startApplication() override;
+    virtual bool stopApplication() override;
+    virtual void processPacket(std::shared_ptr<inet::Packet> pk) override;
+
+public:
+    VeinsInetSampleApplication();
+    ~VeinsInetSampleApplication();
+};

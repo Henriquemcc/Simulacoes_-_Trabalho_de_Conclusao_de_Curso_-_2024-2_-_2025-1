@@ -20,34 +20,21 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-#pragma once
+package io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.Flooding;
 
-#include "veins_inet/veins_inet.h"
+import org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd;
 
-#include "veins/modules/mobility/traci/TraCIScenarioManagerForker.h"
-#include "veins_inet/VeinsInetManagerBase.h"
 
-namespace veins {
+//
+// Creates and manages network nodes corresponding to cars.
+//
+// See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
+//
+// @author Christoph Sommer
+//
+simple VeinsInetManager extends TraCIScenarioManagerLaunchd
+{
+    parameters:
+        @class(veins::VeinsInetManager);
+}
 
-/**
- * @brief
- * Creates and manages network nodes corresponding to cars.
- *
- * See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
- *
- * @author Christoph Sommer
- *
- */
-class VEINS_INET_API VeinsInetManagerForker : public VeinsInetManagerBase, public TraCIScenarioManagerForker {
-    virtual void initialize(int stage) override;
-};
-
-class VEINS_INET_API VeinsInetManagerForkerAccess {
-public:
-    VeinsInetManagerForker* get()
-    {
-        return FindModule<VeinsInetManagerForker*>::findGlobalModule();
-    };
-};
-
-} // namespace veins

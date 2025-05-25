@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2006-2017 Christoph Sommer <sommer@ccs-labs.org>
+// Copyright (C) 2018 Christoph Sommer <sommer@ccs-labs.org>
 //
 // Documentation for these modules is at http://veins.car2x.org/
 //
@@ -20,34 +20,13 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-#pragma once
+package io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.Flooding;
 
-#include "veins_inet/veins_inet.h"
+import org.car2x.veins.subprojects.veins_inet.VeinsInetApplicationBase;
 
-#include "veins/modules/mobility/traci/TraCIScenarioManagerLaunchd.h"
-#include "veins_inet/VeinsInetManagerBase.h"
-
-namespace veins {
-
-/**
- * @brief
- * Creates and manages network nodes corresponding to cars.
- *
- * See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
- *
- * @author Christoph Sommer
- *
- */
-class VEINS_INET_API VeinsInetManager : public VeinsInetManagerBase, public TraCIScenarioManagerLaunchd {
-    virtual void initialize(int stage) override;
-};
-
-class VEINS_INET_API VeinsInetManagerAccess {
-public:
-    VeinsInetManager* get()
-    {
-        return FindModule<VeinsInetManager*>::findGlobalModule();
-    };
-};
-
-} // namespace veins
+simple VeinsInetSampleApplication extends VeinsInetApplicationBase
+{
+    parameters:
+        @class(VeinsInetSampleApplication);
+    gates:
+}

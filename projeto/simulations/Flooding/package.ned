@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2006-2017 Christoph Sommer <sommer@ccs-labs.org>
+// Copyright (C) 2018 Christoph Sommer <sommer@ccs-labs.org>
 //
 // Documentation for these modules is at http://veins.car2x.org/
 //
@@ -20,14 +20,4 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-#include "veins_inet/VeinsInetManagerForker.h"
-
-using veins::VeinsInetManagerForker;
-
-Define_Module(veins::VeinsInetManagerForker);
-
-void VeinsInetManagerForker::initialize(int stage)
-{
-    TraCIScenarioManagerForker::initialize(stage);
-    VeinsInetManagerBase::initialize(stage);
-}
+package io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.simulations.Flooding;

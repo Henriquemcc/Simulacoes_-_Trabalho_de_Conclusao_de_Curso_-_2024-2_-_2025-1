@@ -20,21 +20,14 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-package org.car2x.veins.subprojects.veins_inet;
+#include "../Flooding/VeinsInetManagerForker.h"
 
-import org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerForker;
+using veins::VeinsInetManagerForker;
 
+Define_Module(veins::VeinsInetManagerForker);
 
-//
-// Creates and manages network nodes corresponding to cars.
-//
-// See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
-//
-// @author Christoph Sommer
-//
-simple VeinsInetManagerForker extends TraCIScenarioManagerForker
+void VeinsInetManagerForker::initialize(int stage)
 {
-    parameters:
-        @class(veins::VeinsInetManagerForker);
+    TraCIScenarioManagerForker::initialize(stage);
+    VeinsInetManagerBase::initialize(stage);
 }
-

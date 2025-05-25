@@ -20,20 +20,34 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-//
-// Veins Mobility module for the INET Framework
-// Based on inet::MovingMobilityBase of INET Framework v4.0.0
-//
+#pragma once
 
-package org.car2x.veins.subprojects.veins_inet;
+#include "veins/modules/mobility/traci/TraCIScenarioManagerForker.h"
 
-import inet.mobility.base.MobilityBase;
+#include "../Flooding/veins_inet.h"
+#include "../Flooding/VeinsInetManagerBase.h"
 
-simple VeinsInetMobility extends MobilityBase
-{
-    parameters:
-        @class(veins::VeinsInetMobility);
-        @display("i=block/cogwheel");
-        @signal[mobilityStateChanged](type=inet::MobilityBase);
-        bool initFromDisplayString = default(true); // do not change this to false
-}
+namespace veins {
+
+/**
+ * @brief
+ * Creates and manages network nodes corresponding to cars.
+ *
+ * See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
+ *
+ * @author Christoph Sommer
+ *
+ */
+class VEINS_INET_API VeinsInetManagerForker : public VeinsInetManagerBase, public TraCIScenarioManagerForker {
+    virtual void initialize(int stage) override;
+};
+
+class VEINS_INET_API VeinsInetManagerForkerAccess {
+public:
+    VeinsInetManagerForker* get()
+    {
+        return FindModule<VeinsInetManagerForker*>::findGlobalModule();
+    };
+};
+
+} // namespace veins

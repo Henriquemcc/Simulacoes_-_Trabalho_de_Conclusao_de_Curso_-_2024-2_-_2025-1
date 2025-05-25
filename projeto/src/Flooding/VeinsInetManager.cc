@@ -20,11 +20,11 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //
 
-#include "veins_inet/VeinsInetManager.h"
+#include "../Flooding/VeinsInetManager.h"
 
 #include "veins/base/utils/Coord.h"
-#include "veins_inet/VeinsInetMobility.h"
 #include "inet/common/scenario/ScenarioManager.h"
+#include "../Flooding/VeinsInetMobility.h"
 
 using veins::VeinsInetManager;
 
