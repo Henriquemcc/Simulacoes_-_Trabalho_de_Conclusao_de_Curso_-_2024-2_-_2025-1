@@ -22,7 +22,7 @@
 
 package io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.Flooding;
 
-import org.car2x.veins.subprojects.veins_inet.VeinsInetApplicationBase;
+import io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.Flooding.VeinsInetApplicationBase;
 
 simple VeinsInetSampleApplication extends VeinsInetApplicationBase
 {

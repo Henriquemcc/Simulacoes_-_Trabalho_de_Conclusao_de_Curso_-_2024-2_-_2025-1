@@ -27,8 +27,8 @@ import inet.physicallayer*.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium
 //#else
 import inet.physicallayer*.wireless.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium;
 //#endif
-import org.car2x.veins.subprojects.veins_inet.VeinsInetCar;
-import org.car2x.veins.subprojects.veins_inet.VeinsInetManager;
+import io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.Flooding.VeinsInetCar;
+import io.github.henriquemcc.simulacoestrabalhoconclusaocurso.simulacoes.Flooding.VeinsInetManager;
 //#if INET_VERSION < 0x0403
 import inet.visualizer*.integrated.IntegratedVisualizer;
 //#else
