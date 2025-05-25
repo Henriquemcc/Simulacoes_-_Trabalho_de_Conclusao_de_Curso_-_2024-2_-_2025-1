@@ -30,7 +30,7 @@
 #include "inet/networklayer/common/L3AddressTag_m.h"
 #include "inet/transportlayer/contract/udp/UdpControlInfo_m.h"
 
-#include "veins_inet/VeinsInetSampleMessage_m.h"
+#include "../Flooding/VeinsInetSampleMessage_m.h"
 
 using namespace inet;
 
